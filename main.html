@@ -7,8 +7,49 @@
 </head>
 
 <body>
+	<h1>My Favourite Bands</h1>
+	<ul id="band"></ul>
+	
 	<!-- the entire body must be written by student -->
     <script type="text/javascript" src="./script.js">
+		
+const bands = [
+    'The Plot in You',
+    'The Devil Wears Prada',
+    'Pierce the Veil',
+    'Norma Jean',
+    'The Bled',
+    'Say Anything',
+    'The Midway State',
+    'We Came as Romans',
+    'Counterparts',
+    'Oh, Sleeper',
+    'A Skylit Drive',
+    'Anywhere But Here',
+	'An Old Dog'
+	];
+	
+	// Remove A, An and The for sorting
+	function removeWords(band) {
+	    return band.replace(/^(a |an |the )/i, "");
+	}
+	
+	// Sort bands alphabetically
+	bands.sort(function(a, b) {
+	    let first = removeWords(a);
+	    let second = removeWords(b);
+	    return first.localeCompare(second);
+	});
+	
+	// Select ul
+	let ul = document.getElementById("band");
+	// Display bands
+	bands.forEach(function(band) {
+	    let li = document.createElement("li");
+	    li.innerText = band;
+	    ul.appendChild(li);
+	});
+
 </script>
 
 </body>
